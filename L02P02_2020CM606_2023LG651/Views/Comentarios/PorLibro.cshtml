@@ -1,0 +1,77 @@
+@model IEnumerable<L02P02_2020CM606_2023LG651.Models.comentarios_libros>
+
+@{
+    ViewData["Title"] = "Comentarios del Libro";
+    var libro = ViewBag.Libro as L02P02_2020CM606_2023LG651.Models.libros;
+}
+
+<h2>Comentarios del Libro: @libro.nombre</h2>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            @Html.ActionLink("Regresar a Listado de Libros", "PorAutor", "Libros", new { id = libro.id_autor }, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Detalle del Libro</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            @if (!string.IsNullOrEmpty(libro.url_imagen))
+                            {
+                                <img src="@libro.url_imagen" alt="@libro.nombre" class="img-fluid" />
+                            }
+                            else
+                            {
+                                <img src="/images/default-book.png" alt="Imagen no disponible" class="img-fluid" />
+                            }
+                        </div>
+                        <div class="col-md-8">
+                            <h5>@libro.nombre</h5>
+                            <p><strong>Autor:</strong> @libro.Autor.autor</p>
+                            <p><strong>Categoría:</strong> @libro.Categoria.categoria</p>
+                            <p><strong>Precio:</strong> $@libro.precio</p>
+                            <p>@libro.descripcion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h4>Comentarios</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model.Any())
+                    {
+                        foreach (var comentario in Model)
+                        {
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <strong>@comentario.usuario</strong> - @comentario.created_at.ToString("dd/MM/yyyy HH:mm")
+                                </div>
+                                <div class="card-body">
+                                    <p>@comentario.comentarios</p>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-center">No hay comentarios disponibles para este libro.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

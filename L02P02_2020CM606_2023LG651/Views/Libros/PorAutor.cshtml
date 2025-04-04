@@ -1,0 +1,54 @@
+@model IEnumerable<L02P02_2020CM606_2023LG651.Models.libros>
+
+@{
+    ViewData["Title"] = "Libros por Autor";
+}
+
+<h2>Listado de Libros del Autor: @ViewBag.Autor.autor</h2>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            @Html.ActionLink("Regresar a Listado de Autores", "Index", "Autores", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Libro</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.id)</td>
+                                <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Categoria.categoria)</td>
+                                <td>$@Html.DisplayFor(modelItem => item.precio)</td>
+                                <td>
+                                    @Html.ActionLink("Seleccionar", "PorLibro", "Comentarios", new { id = item.id }, new { @class = "btn btn-primary" })
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center">No hay libros disponibles para este autor.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
