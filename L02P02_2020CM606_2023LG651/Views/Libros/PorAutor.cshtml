@@ -4,9 +4,19 @@
     ViewData["Title"] = "Libros por Autor";
 }
 
+<div class="container">
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li class="active">Libros</li>
+        <li>Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+</div>
+<br /><br /><br /><br />
+
 <h2>Listado de Libros del Autor: @ViewBag.Autor.autor</h2>
 
-<div class="container">
+<div class="container mt-3">
     <div class="row mb-3">
         <div class="col-md-12">
             @Html.ActionLink("Regresar a Listado de Autores", "Index", "Autores", null, new { @class = "btn btn-secondary" })

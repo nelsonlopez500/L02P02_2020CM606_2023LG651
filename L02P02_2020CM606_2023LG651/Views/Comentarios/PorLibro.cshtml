@@ -5,9 +5,19 @@
     var libro = ViewBag.Libro as L02P02_2020CM606_2023LG651.Models.libros;
 }
 
+<div class="container">
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li>Libros</li>
+        <li class="active">Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+</div>
+<br /><br /><br /><br />
+
 <h2>Comentarios del Libro: @libro.nombre</h2>
 
-<div class="container">
+<div class="container mt-3">
     <div class="row mb-3">
         <div class="col-md-12">
             @Html.ActionLink("Regresar a Listado de Libros", "PorAutor", "Libros", new { id = libro.id_autor }, new { @class = "btn btn-secondary" })

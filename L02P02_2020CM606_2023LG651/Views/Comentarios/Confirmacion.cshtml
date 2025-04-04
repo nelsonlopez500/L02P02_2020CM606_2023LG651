@@ -4,9 +4,19 @@
     ViewData["Title"] = "Confirmación de Comentario";
 }
 
+<div class="container">
+    <ul class="progressbar">
+        <li>Autores</li>
+        <li>Libros</li>
+        <li>Comentarios Existentes</li>
+        <li class="active">Nuevo Comentario</li>
+    </ul>
+</div>
+<br /><br /><br /><br />
+
 <h2>Comentario Guardado con Éxito</h2>
 
-<div class="container">
+<div class="container mt-3">
     <div class="row mb-3">
         <div class="col-md-12">
             @Html.ActionLink("Regresar al Libro", "PorLibro", "Comentarios", new { id = Model.id_libro }, new { @class = "btn btn-secondary" })
