@@ -1,0 +1,52 @@
+@model L02P02_2020CM606_2023LG651.Models.comentarios_libros
+
+@{
+    ViewData["Title"] = "Confirmación de Comentario";
+}
+
+<h2>Comentario Guardado con Éxito</h2>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            @Html.ActionLink("Regresar al Libro", "PorLibro", "Comentarios", new { id = Model.id_libro }, new { @class = "btn btn-secondary" })
+            @Html.ActionLink("Ver Todos los Autores", "Index", "Autores", null, new { @class = "btn btn-primary ms-2" })
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4>Detalle del Comentario</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Libro:</div>
+                        <div class="col-md-9">@Model.Libro.nombre</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Autor:</div>
+                        <div class="col-md-9">@Model.Libro.Autor.autor</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Categoría:</div>
+                        <div class="col-md-9">@Model.Libro.Categoria.categoria</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Usuario:</div>
+                        <div class="col-md-9">@Model.usuario</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Fecha:</div>
+                        <div class="col-md-9">@Model.created_at.ToString("dd/MM/yyyy HH:mm")</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 fw-bold">Comentario:</div>
+                        <div class="col-md-9">@Model.comentarios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

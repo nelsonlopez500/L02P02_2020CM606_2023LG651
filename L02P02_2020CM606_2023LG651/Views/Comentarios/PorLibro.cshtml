@@ -43,13 +43,40 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4>Agregar un Comentario</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("GuardarComentario", "Comentarios", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="idLibro" value="@libro.id" />
+                        
+                        <div class="form-group mb-3">
+                            <label for="usuario">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" required />
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="comentarioTexto">Comentario</label>
+                            <textarea class="form-control" id="comentarioTexto" name="comentarioTexto" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Guardar Comentario</button>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-info text-white">
-                    <h4>Comentarios</h4>
+                    <h4>Comentarios Existentes</h4>
                 </div>
                 <div class="card-body">
                     @if (Model.Any())
