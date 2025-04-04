@@ -1,5 +1,4 @@
-﻿Shared\_Layout.cshtml
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +8,16 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/progress.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/L02P02_2020CM606_2023LG651.styles.css" asp-append-version="true" />
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            margin-bottom: 60px;
+        }
+        /* Eliminamos las propiedades problemáticas del footer */
+    </style>
 </head>
 <body>
     <header>
@@ -35,17 +44,33 @@
             </div>
         </nav>
     </header>
+
+    <!-- Nuevo encabezado con estilo similar al solicitado -->
+    <div class="container-fluid py-4 text-center bg-dark mb-4">
+        <div class="mb-3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRstXyCca8tT-9Bbm-50HkXxzHj_7OkMw1VZg&st=8" 
+                 alt="Logo with a book and a pen" 
+                 width="100" height="100" 
+                 class="mx-auto d-block" />
+        </div>
+        <h1 class="text-white fw-semibold fs-4 mb-2">Comentarios por Libros</h1>
+        <p class="text-white-50">
+            Seleccione el autor → Seleccione el Libro → Se muestran los comentarios existentes → Adicione un nuevo comentario
+        </p>
+    </div>
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-5">
             @RenderBody()
         </main>
     </div>
+    
+    <!-- Footer simplificado con estilos directos de Bootstrap -->
+    <div class="bg-dark text-center fixed-bottom py-3">
+        <p class="text-white-50 mb-0">2020CM606 Jose Giovanni Canelo Mendóza </p>
+        <p class="text-white-50 mb-0">2023LG651 Nelson Alberto López Germán</p>
+    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - L02P02_2020CM606_2023LG651 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
